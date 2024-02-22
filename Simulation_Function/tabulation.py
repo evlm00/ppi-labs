@@ -4,7 +4,8 @@ def func(x: list[float]) -> list[float]:
     """
     Calculate function values for passed array of arguments
     """
-    return [ t/(t**2 + 1) for t in x ]
+    N = 5
+    return [ 1 - (t - N/2 / N/2)**2 for t in x ]
 
 def tabulate(a: float, b: float, n: int) -> dict[float]:
     x = [ a + x*(b - a)/n for x in range(n) ]
