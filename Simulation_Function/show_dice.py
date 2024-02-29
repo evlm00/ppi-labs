@@ -5,7 +5,7 @@ from die import Die
 
 # Create two D6 dice.
 die_1 = Die()
-die_2 = Die()
+die_2 = Die(9)
 
 # Make some rolls, and store results in a list.
 results = []
@@ -26,6 +26,6 @@ data = [Bar(x=x_values, y=frequencies)]
 
 x_axis_config = {'title': 'Result', 'dtick': 1}
 y_axis_config = {'title': 'Frequency of Result'}
-my_layout = Layout(title='Results of rolling two D6 dice 1000 times',
+my_layout = Layout(title='Результат кидку одного 6-гранного кубика та 9-гранного асиметричного кубика',
         xaxis=x_axis_config, yaxis=y_axis_config)
 offline.plot({'data': data, 'layout': my_layout}, filename='d6_d6.html')
