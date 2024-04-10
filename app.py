@@ -25,22 +25,22 @@ def dump_json(data: dict[str, any], fname: str):
         with open(fname, 'wt') as f:
             json.dump(data, f)
 
-async def main(log):
+def main(log):
     log.info("Begin")
     loader = CoinbaseLoader()
 
-    pairs = await loader.get_pairs()
+    pairs = loader.get_pairs()
     log.debug("Pairs received")
     dump_json(pairs, "pairs.json")
     log.debug("Pairs stored")
     pairs = Pairs.model_validate(pairs)
 
-    stats = await loader.get_stats("btc-usdt")
+    stats = loader.get_stats("btc-usdt")
     log.debug("Stats for btc-usdt receievd")
     dump_json(pairs, "stats.json")
     log.debug("Stats for btc-usdt stored")
 
-    data = await loader.get_historical_data("btc-usdt", "2023-0101", "2023-06-30", Granularity.ONE_DAY)
+    data = loader.get_historical_data("btc-usdt", "2023-0101", "2023-06-30", Granularity.ONE_DAY)
     log.debug("Data received")
     dump_json(data, "data.json")
     log.debug("Data stored")
@@ -49,4 +49,4 @@ async def main(log):
 if __name__ == "__main__":
     setup_logging()
     log = logging.getLogger("APPMAIN")
-    asyncio.run(main(log))
+    main(log)

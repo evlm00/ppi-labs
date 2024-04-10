@@ -1,20 +1,15 @@
-# Lab 4 requirements
+# Requirements
+- httpx
+- pyyaml
+- pytest
+- pydantic
+
+# Run
+## Application
 ```bash
-pip install matplotlib plotly
+python app.py
 ```
-# Lab5 requirements
-```bash
-pip install numpy
+## Tests
 ```
-# Lab6 requirements
-```bash
-pip install requests
-```
-# Lab8 requirements
-```bash
-pip install pytest
-```
-Command to run pytest tests:
-```bash
 python -m pytest
 ```
