@@ -3,11 +3,12 @@
 - pyyaml
 - pytest
 - pydantic
+- uvicorn
 
 # Run
 ## Application
 ```bash
-python app.py
+uvicorn app:app
 ```
 ## Tests
 ```
