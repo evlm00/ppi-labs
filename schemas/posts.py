@@ -1,10 +1,25 @@
-from pydantic import BaseModel
+from datetime import datetime
 
-class PostCreate(BaseModel):
-    user: int
-    title: str
+from pydantic import BaseModel, Field
+
 
 class Post(BaseModel):
-    id: int
-    user: int
     title: str
+    content: str
+    publication_date: datetime = Field(default_factory=datetime.now)
+
+    class Config:
+        from_attributes = True
+
+
+class PostPartialUpdate(BaseModel):
+    title: str | None = None
+    content: str | None = None
+
+
+class PostCreate(Post):
+    pass
+
+
+class PostRead(Post):
+    id: int
